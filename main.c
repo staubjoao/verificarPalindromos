@@ -85,7 +85,15 @@ main()
     insereLista(w);
     inverteLista(out);
     if(strcmp(w, out))
-        printf("não é um palindromo");
+    {
+        printf("w: %s\n", w);
+        printf("out: %s\n", out);
+        printf("n%co %c um palindromo\n", 198, 130);
+    }
     else
-        printf("é um palindromo");
+    {
+        printf("w: %s\n", w);
+        printf("out: %s\n", out);
+        printf("%c um palindromo\n", 130);
+    }
 }
