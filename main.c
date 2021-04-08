@@ -37,6 +37,56 @@ char *tudoMin(char *out, char *w)
     return out;
 }
 
+char *removeAcento(char *out, char *w)
+{
+    char *p = w;
+    int i = 0;
+
+    while(*p)
+    {
+        switch(*p)
+        {
+            case 'á':
+            case 'à':
+            case 'ã':
+            case 'ä':
+            case 'â':
+                break;
+            case 'é':
+            case 'è':
+            case 'ê':
+            case 'ë':
+                out[i++] = 'e';
+                break;
+            case 'í':
+            case 'ì':
+            case 'ï':
+            case 'î':
+                out[i++] = 'i';
+                break;
+            case 'ó':
+            case 'ò':
+            case 'õ':
+            case 'ö':
+            case 'ô':
+                printf("\nentro\n");
+                out[i++] = 'o';
+                break;
+            case 'ú':
+            case 'ù':
+            case 'ü':
+            case 'û':
+                out[i++] = 'u';
+                break;
+        }
+
+        p++;
+    }
+    out[i] = 0;
+
+    return out;
+}
+
 char *limpaCaracEspe(char *out, char *w)
 {
     char *p = w;
@@ -77,6 +127,8 @@ main()
     limpaEspaco(out, w);
     strcpy(w, out);
     tudoMin(out, w);
+    strcpy(w, out);
+    removeAcento(w, out);
     strcpy(w, out);
     limpaCaracEspe(out, w);
     strcpy(w, out);
