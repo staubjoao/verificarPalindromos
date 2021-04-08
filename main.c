@@ -54,6 +54,16 @@ char *limpaCaracEspe(char *out, char *w)
     return out;
 }
 
+void insereLista(char w[256])
+{
+    int i;
+
+    for(i = 0; i < strlen(w); i++)
+    {
+        insereInicio(w[i]);
+    }
+}
+
 main()
 {
     char w[256];
@@ -72,5 +82,10 @@ main()
     strcpy(w, out);
 
     criaLista();
-
+    insereLista(w);
+    inverteLista(out);
+    if(strcmp(w, out))
+        printf("não é um palindromo");
+    else
+        printf("é um palindromo");
 }

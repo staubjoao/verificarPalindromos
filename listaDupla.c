@@ -52,11 +52,16 @@ void insereInicio(char wr)
 	len++;
 }
 
-void imprimeLista() {
+char *inverteLista(char *out) {
 	Palindromo *atual;
 	atual = inicio;
+	char aux;
+	int i = 0;
 	while(atual){
-		printf("%d\n",atual->wr);
+		aux = atual->wr;
 		atual = atual->proximo;
+		out[i] = aux;
+		i++;
 	}
+	return out;
 }
