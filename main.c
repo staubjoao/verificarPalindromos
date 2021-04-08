@@ -2,6 +2,8 @@
 #include<string.h>
 #include <ctype.h>
 
+#include "listaDupla.c"
+
 char *limpaEspaco(char *out, char *w)
 {
     char *p = w;
@@ -69,6 +71,6 @@ main()
     limpaCaracEspe(out, w);
     strcpy(w, out);
 
-    printf("%s", w);
+    criaLista();
 
 }
