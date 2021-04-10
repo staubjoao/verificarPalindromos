@@ -44,42 +44,31 @@ char *removeAcento(char *out, char *w)
 
     while(*p)
     {
-        switch(*p)
-        {
-            case 'á':
-            case 'à':
-            case 'ã':
-            case 'ä':
-            case 'â':
-                break;
-            case 'é':
-            case 'è':
-            case 'ê':
-            case 'ë':
-                out[i++] = 'e';
-                break;
-            case 'í':
-            case 'ì':
-            case 'ï':
-            case 'î':
-                out[i++] = 'i';
-                break;
-            case 'ó':
-            case 'ò':
-            case 'õ':
-            case 'ö':
-            case 'ô':
-                printf("\nentro\n");
-                out[i++] = 'o';
-                break;
-            case 'ú':
-            case 'ù':
-            case 'ü':
-            case 'û':
-                out[i++] = 'u';
-                break;
-        }
-
+        //fazer switch case
+        if(*p==-96||*p==-123||*p==-58||*p==-124||*p==-125||*p==-75||*p==-73||*p==-57||*p==-114||*p==-74)
+            out[i++] = 'a';
+        else
+            out[i++] = *p;
+        if(*p==-126||*p==-118||*p==-120||*p==-119||*p==-112||*p==-44||*p==-46||*p==-45)
+            out[i++] = 'e';
+        else
+            out[i++] = *p;
+        if(*p==-95||*p==-115||*p==-117||*p==-116||*p==-42||*p==-34||*p==-40||*p==-41)
+            out[i++] = 'i';
+        else
+            out[i++] = *p;
+        if(*p==-94||*p==-107||*p==-28||*p==-108||*p==-109||*p==-32||*p==-29||*p==-27||*p==-103||*p==-30)
+            out[i++] = 'o';
+        else
+            out[i++] = *p;
+        if(*p==-93||*p==-105||*p==-127||*p==-106||*p==-23||*p==-21||*p==-102||*p==-22)
+            out[i++] = 'u';
+        else
+            out[i++] = *p;
+        if(*p==-121||*p==-128)
+            out[i++] = 'c';
+        else
+            out[i++] = *p;
         p++;
     }
     out[i] = 0;
@@ -123,15 +112,23 @@ main()
     fgets(w, 87, stdin);
     w[strlen(w)-1] = '\0';
 
-
     limpaEspaco(out, w);
     strcpy(w, out);
     tudoMin(out, w);
     strcpy(w, out);
-    removeAcento(w, out);
+    removeAcento(out, w);
+    printf("w: %s\n", w);
+    printf("out: %s\n", out);
     strcpy(w, out);
     limpaCaracEspe(out, w);
     strcpy(w, out);
+
+    /*int i;
+
+    for(i = 0; i < strlen(comAcento); i++)
+    {
+        printf("%c: %d\n", comAcento[i], comAcento[i]);
+    }*/
 
     criaLista();
     insereLista(w);
