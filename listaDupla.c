@@ -52,7 +52,7 @@ void insereInicio(char wr)
 	len++;
 }
 
-char *inverteLista(char *out) {
+char *retornaInvertido(char *out) {
 	Palindromo *atual;
 	atual = inicio;
 	char aux;

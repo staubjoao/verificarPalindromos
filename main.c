@@ -122,17 +122,17 @@ main()
 
     criaLista();
     insereLista(w);
-    inverteLista(out);
+    retornaInvertido(out);
     if(strcmp(w, out))
     {
         printf("w: %s\n", w);
         printf("out: %s\n", out);
-        printf("n%co %c um palindromo\n", 198, 130);
+        printf("n%co %c um pal%cndromo\n", 198, 130, 161);
     }
     else
     {
         printf("w: %s\n", w);
         printf("out: %s\n", out);
-        printf("%c um palindromo\n", 130);
+        printf("%c um pal%cndromo\n", 130, 161);
     }
 }
